@@ -1,0 +1,24 @@
+sudo: required
+services: 
+    - docker
+
+before_install:
+    - docker build -t serhatkayaa/react-test -f ./client/Dockerfile.dev ./client
+
+
+script: 
+    - docker run -e CI=true serhatkayaa/react-test npm test
+
+
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: us-east-1
+    app: ticket-ui
+    env: TicketUi-env
+    bucket_name: elasticbeanstalk-us-east-1-566740074909
+    bucket_path: ticket-ui
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
