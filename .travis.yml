@@ -7,7 +7,7 @@ before_install:
 
 
 script: 
-    - docker run -e CI=true serhatkayaa/react-test npm test
+    - docker run -e CI=true serhatkayaa/ticket-ui npm test
 
 
 deploy:
