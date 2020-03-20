@@ -13,7 +13,7 @@ const CreateNewTicket = () => {
     const [visible, setVisible] = useState(false);
     return (
        <Segment.Group horizontal style={segmentContainer}>
-            <Segment>
+            <Segment style={rightContainer}>
                 <h3> Create New Ticket</h3>
                 <Form>
                     <Form.Field control={Input} label="Subject" />
@@ -46,6 +46,10 @@ const segmentContainer = {
     width: '80%',
     margin: '20px auto'
 };
+
+const rightContainer = {
+    minWidth: '50%'
+}
 
 const labelFont = {
     marginTop: '10px',

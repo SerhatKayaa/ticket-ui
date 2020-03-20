@@ -28,7 +28,7 @@ const SideBar = () => {
                 vertical
                 target={segmentRef}
                 visible={visible}
-                width='very wide'
+                width='wide'
             >
                 <Segment style={slideBar}>
                     <h3> Create New Ticket</h3>

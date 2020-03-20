@@ -2,7 +2,6 @@ import React from 'react';
 import SideBar from '../containers/SideBar';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-    Segment, 
     Button,
     Icon
 } from 'semantic-ui-react';
@@ -12,10 +11,10 @@ const Home = () => {
     const filterVisibility = useSelector(state => state.filterView);
     const dispatch = useDispatch();
     return (
-            <Segment style={segmentContainer}>
+            <div style={mainContainer}>
                 <div style={buttonContainer}>
-                    <div>
-                        <Button icon onClick={() => dispatch({ type: 'LIST_VIEW', payload: true})}><Icon name="list ul" /></Button>
+                    <div style={buttonContainer}>
+                    <Button icon onClick={() => dispatch({ type: 'LIST_VIEW', payload: true})}><Icon name="list ul" /></Button>
                         <Button icon onClick={() => dispatch({ type: 'LIST_VIEW', payload: false})}><Icon name="th" /></Button>
                         <Button 
                         icon
@@ -27,18 +26,19 @@ const Home = () => {
                             <Icon name="filter" />
                         </Button>
                     </div>
-                    <div>
+                    <div style={buttonContainer}>
                         <Button 
-                        onClick={() => 
-                            visible 
-                            ? dispatch({ type: 'GET_VISIBILITY', payload: false})
-                            : dispatch({ type: 'GET_VISIBILITY', payload: true})
-                        }>New Ticket</Button>
+                            onClick={() => 
+                                visible 
+                                ? dispatch({ type: 'GET_VISIBILITY', payload: false})
+                                : dispatch({ type: 'GET_VISIBILITY', payload: true})
+                            }>New Ticket
+                        </Button>
                         <Button>Start Process</Button>
                     </div>
                 </div>
                 <SideBar />
-            </Segment>
+            </div>
     );
 }
 
@@ -49,9 +49,10 @@ const buttonContainer = {
     justifyContent: 'space-between'
 }
 
-const segmentContainer = {
+
+
+const mainContainer = {
     height: '100%',
-    width: '80%',
     margin: '20px auto'
 };
 
